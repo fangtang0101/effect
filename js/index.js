@@ -295,15 +295,25 @@ S.UI = (function () {
     bindEvents();
     input.focus();
     isTouch && document.body.classList.add('touch');
-    //  test
     window.onload = function () {
-      let d = new Date()
-      let date = `${d.getFullYear()}-${(d.getMonth() + 1)}-${d.getDate()}`
-      let str = `${date} |#time |情人节 |爱之深 |情之切 |只为伊 |愿你知 |#countdown 3|丹丽 |我爱你`
-      firstAction = false;
-      reset();
-      performAction(str);
+      loopText()
+      setInterval(() => {
+        loopText()
+      }, 22000)
     }
+  }
+
+  function loopText() {
+    var music = document.getElementById("clickSound");
+    if (music.paused) {
+      music.play();
+    }
+    let d = new Date()
+    let date = `${d.getFullYear()}-${(d.getMonth() + 1)}-${d.getDate()}`
+    let str = `${date} |#time |情人节 |爱之深 |情之切 |只为伊 |愿你知 |#countdown 3|丹丽 |我爱你`
+    firstAction = false;
+    reset();
+    performAction(str);
   }
 
   // Init
